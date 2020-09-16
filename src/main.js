@@ -2,7 +2,7 @@ const fs = require('fs');
 const {generateKeys, decryptKey} = require('./generateKey');
 const {createSignature} = require('./createSignature');
 const {verifySignature} = require('./verifySignature');
-
+require('./splash');
 
 const y = require('yargs')
     .command('generateKey [password] [location]', 'generates keys', (yargs) => {
@@ -51,6 +51,7 @@ const y = require('yargs')
             describe: 'file location',
           });
     }, (argv) => {
+      // eslint-disable-next-line max-len
       if (argv.publicKeyLocation === undefined || argv.fileLocation === undefined) {
         console.error('args are undefined');
       } else {
@@ -65,6 +66,7 @@ const y = require('yargs')
     })
     .argv;
 
+// eslint-disable-next-line require-jsdoc
 function verifyFile(fileLocation, publicKeyLocation) {
   fs.readFile(publicKeyLocation, function(error, data) {
     if (error !== null) {
@@ -84,7 +86,12 @@ function verifyFile(fileLocation, publicKeyLocation) {
               console.error(error);
               process.exit(200);
             } else {
-              console.log(verifySignature(fileData, data.toString(), publicKeyData));
+              console.log(
+                  verifySignature(
+                      fileData,
+                      data.toString(),
+                      publicKeyData),
+              );
             }
           });
         }
@@ -106,8 +113,9 @@ function signFile(fileLocation, privateKeyLocation, privateKeyPassword) {
           console.error(error);
           process.exit(200);
         } else {
-          const keyData = data;
-          const sigData = createSignature(decryptKey(keyData.toString('utf-8'), privateKeyPassword), fileData);
+          // eslint-disable-next-line max-len
+          const keyData = decryptKey(keyData.toString('utf-8'), privateKeyPassword);
+          const sigData = createSignature(keyData, fileData);
           saveFile(fileLocation + '.nSignSig', sigData, function(error) {
             if (error !== null) {
               console.error(error);

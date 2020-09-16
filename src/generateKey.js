@@ -11,7 +11,7 @@ function generateKeys(password) {
     bits: 2048,
   });
   const publicKey = keys.public;
-  const privateKey = encryptKey(keys.private);
+  const privateKey = encryptKey(password, keys.private);
   return {
     publicKey: publicKey,
     encryptedPrivateKey: privateKey,
@@ -20,8 +20,8 @@ function generateKeys(password) {
 
 /**
  * Encrypts the private key with the password
- * @param password
- * @param privateKey
+ * @param {string} password
+ * @param {string} privateKey
  * @return {PromiseLike<ArrayBuffer>}
  */
 function encryptKey(password, privateKey) {
@@ -41,5 +41,5 @@ function decryptKey(key, password) {
 }
 module.exports = {
   generateKeys,
-  decryptKey
+  decryptKey,
 };

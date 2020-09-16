@@ -1,10 +1,12 @@
 {
-  "name": "talker-x",
+  "name": "nsign",
   "version": "1.0.0",
   "description": "",
   "main": "./src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/main.js",
+    "build-windows": "pkg . -t node12.18.1-win && node build.js"
   },
   "keywords": [],
   "author": "",
@@ -12,11 +14,19 @@
   "devDependencies": {
     "eslint": "^7.9.0",
     "eslint-config-google": "^0.14.0",
+    "node-resourcehacker": "^1.2.1",
+    "pkg": "^4.4.9",
     "socket.io": "^2.3.0",
     "yarn": "^1.22.5"
   },
   "dependencies": {
+    "cryptr": "^6.0.2",
     "digital-signature": "^1.0.4",
-    "keypair": "^1.0.1"
+    "keypair": "^1.0.1",
+    "yargs": "^16.0.3"
+  },
+  "bin": "./src/main.js",
+  "pkg": {
+    "scripts": "src/*"
   }
 }
