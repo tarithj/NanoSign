@@ -1,9 +1,9 @@
 
 /**
  * Verifies the message is created by the private key holder
- * @param {string} message The message
+ * @param {*} message The message
  * @param {string} digitalSignature The signature of the message
- * @param {string} publicKey
+ * @param {*} publicKey
  * @return {boolean}
  */
 function verifySignature(message, digitalSignature, publicKey) {

@@ -4,7 +4,7 @@ const {createSignature} = require('./createSignature');
 const {verifySignature} = require('./verifySignature');
 require('./splash');
 
-const y = require('yargs')
+const yar = require('yargs')
     .command('generateKey [password] [location]', 'generates keys', (yargs) => {
       yargs
           .positional('password', {
@@ -68,28 +68,28 @@ const y = require('yargs')
 
 // eslint-disable-next-line require-jsdoc
 function verifyFile(fileLocation, publicKeyLocation) {
-  fs.readFile(publicKeyLocation, function(error, data) {
-    if (error !== null) {
-      console.error(error);
+  fs.readFile(publicKeyLocation, function(errorP, dataP) {
+    if (errorP !== null) {
+      console.error(errorP);
       process.exit(200);
     } else {
-      const publicKeyData = data.toString();
+      const publicKeyData = dataP.toString();
 
-      fs.readFile(fileLocation, function(error, data) {
-        if (error !== null) {
-          console.error(error);
+      fs.readFile(fileLocation, function(errorF, dataF) {
+        if (errorF !== null) {
+          console.error(errorF);
           process.exit(200);
         } else {
-          const fileData = data;
-          fs.readFile(fileLocation + '.nSignSig', function(error, data) {
-            if (error !== null) {
-              console.error(error);
+          const fileData = dataF;
+          fs.readFile(fileLocation + '.nSignSig', function(errorSig, dataSig) {
+            if (errorSig !== null) {
+              console.error(errorSig);
               process.exit(200);
             } else {
               console.log(
                   verifySignature(
                       fileData,
-                      data.toString(),
+                      dataSig.toString(),
                       publicKeyData),
               );
             }
@@ -102,19 +102,19 @@ function verifyFile(fileLocation, publicKeyLocation) {
 
 // eslint-disable-next-line require-jsdoc
 function signFile(fileLocation, privateKeyLocation, privateKeyPassword) {
-  fs.readFile(fileLocation, function(error, data) {
-    if (error !== null) {
-      console.error(error);
+  fs.readFile(fileLocation, function(errorF, data) {
+    if (errorF !== null) {
+      console.error(errorF);
       process.exit(200);
     } else {
       const fileData = data;
-      fs.readFile(privateKeyLocation, function(error, data) {
-        if (error !== null) {
-          console.error(error);
+      fs.readFile(privateKeyLocation, function(keyError, keyData) {
+        if (keyError !== null) {
+          console.error(keyError);
           process.exit(200);
         } else {
           // eslint-disable-next-line max-len
-          const keyData = decryptKey(keyData.toString('utf-8'), privateKeyPassword);
+          keyData = decryptKey(keyData.toString('utf-8'), privateKeyPassword);
           const sigData = createSignature(keyData, fileData);
           saveFile(fileLocation + '.nSignSig', sigData, function(error) {
             if (error !== null) {
@@ -163,4 +163,4 @@ function saveKeys(location, password) {
       });
 }
 
-
+global.yarg = yar;

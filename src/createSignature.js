@@ -1,7 +1,7 @@
 /**
  * Creates a signature from the private key
  * @param {string} privateKey
- * @param {string} message
+ * @param {*} message
  * @return {string}
  */
 function createSignature(privateKey, message) {
