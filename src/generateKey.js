@@ -2,7 +2,7 @@ const keyPair = require('keypair');
 const Cryptr = require('cryptr');
 
 /**
- * Generates 2048 bit key pair and encrypts the with the password
+ * Generates 2048 bit key pair and encrypts the private key with the password
  * @param {string} password
  * @return {Object}
  */
