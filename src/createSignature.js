@@ -1,6 +1,6 @@
 /**
  * Creates a signature from the private key
- * @param {string} privateKey
+ * @param {*} privateKey
  * @param {*} message
  * @return {string}
  */
