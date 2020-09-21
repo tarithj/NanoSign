@@ -4,18 +4,35 @@ const Cryptr = require('cryptr');
 /**
  * Generates 2048 bit key pair and encrypts the private key with the password
  * @param {string} password
+ * @param {Object} options
+ * @param {Boolean} options.convertToSavable
+ * @param {string} options.name
  * @return {Object}
  */
-function generateKeys(password) {
+function generateKeys(password, options) {
+  const date = Date.now();
+  const {convertToSavable, name} = options;
   const keys = keyPair({
     bits: 2048,
   });
-  const publicKey = keys.public;
+  let publicKey = keys.public;
   const privateKey = encryptKey(password, keys.private);
-  return {
-    publicKey: publicKey,
-    encryptedPrivateKey: privateKey,
-  };
+  if (convertToSavable === false) {
+    return {
+      publicKey: publicKey,
+      encryptedPrivateKey: privateKey,
+    };
+  } else {
+    publicKey = {
+      name: name,
+      publicKey: publicKey,
+      created: date,
+    };
+    return {
+      publicKey: JSON.stringify(publicKey),
+      encryptedPrivateKey: privateKey,
+    };
+  }
 }
 
 /**
