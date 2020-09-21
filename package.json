@@ -23,7 +23,6 @@
     "cryptr": "^6.0.2",
     "digital-signature": "^1.0.4",
     "keypair": "^1.0.1",
-    "thread": "^0.0.2",
     "yargs": "^16.0.3"
   },
   "bin": "./src/main.js",
