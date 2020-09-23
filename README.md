@@ -20,7 +20,7 @@ This is the main reason nsign was made; To create a new way of online identifica
 A - Nsign works by using public-key cryptography ([learn more](https://en.wikipedia.org/wiki/Public-key_cryptography))
 
 **Q - Does nsign require internet**   
-A - Nsign works fully offline no internet connection needed.
+A - Nsign works fully offline, No internet connection needed.
 
 **Q - What happens if I lose my private key**   
 A - If you lose your private key you should generate a new key-pair and send the public key to the other people who used your old public key to verify you.
