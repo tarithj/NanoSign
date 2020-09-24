@@ -1,14 +1,14 @@
 {
   "name": "nsign",
   "version": "1.1.0",
-  "description": "",
+  "description": "A super fast user-friendly file signing and verification software",
   "main": "./src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/main.js",
     "build": "pkg . -t node12.18.1-win,node12.18.1-linux,node12.18.1-mac"
   },
-  "keywords": [],
+  "keywords": ["signing", "cryptography", "file", "security", "verification"],
   "author": "Tarith Jayasooriya",
   "license": "MIT",
   "devDependencies": {
