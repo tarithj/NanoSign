@@ -4,6 +4,7 @@ const {generateKeys, decryptKey} = require('./generateKey');
 const {createSignature} = require('./createSignature');
 const {verifySignature} = require('./verifySignature');
 const {close} = require('./close');
+const {selectACommand, inputParameters} = require('./promptables');
 require('./splash');
 
 // START YARGS
@@ -70,6 +71,14 @@ const yar = require('yargs')
           } else {
             verifyFile(argv.fileLocation, argv.publicKeyLocation);
           }
+        })
+    .command('*', 'the default command',
+        function() {
+
+        }, function() {
+          (async ()=>{
+            await defaultCommand();
+          })();
         })
 
     .option('verbose', {
@@ -214,4 +223,20 @@ function saveKeys(location, password, name) {
       });
 }
 
+/**
+ * Runs when no command is specified
+ */
+async function defaultCommand() {
+  const selectACommandResponse = await selectACommand();
+  if (selectACommandResponse === 'generateKey') {
+    const {location, password, name} = await inputParameters('generateKey');
+    saveKeys('./'+ location, password, name);
+  } else if (selectACommandResponse === 'sign') {
+    const {password, fileLocation, keyLocation} = await inputParameters('sign');
+    signFile( './'+ fileLocation, './' + keyLocation, password);
+  } else if (selectACommandResponse === 'verify') {
+    const {fileLocation, publicKeyLocation} = await inputParameters('verify');
+    verifyFile(fileLocation, publicKeyLocation);
+  }
+}
 global.yarg = yar;
