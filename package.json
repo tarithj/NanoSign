@@ -14,9 +14,7 @@
   "devDependencies": {
     "eslint": "^7.9.0",
     "eslint-config-google": "^0.14.0",
-    "node-resourcehacker": "^1.2.1",
     "pkg": "^4.4.9",
-    "socket.io": "^2.3.0",
     "yarn": "^1.22.5"
   },
   "dependencies": {
