@@ -35,7 +35,7 @@ A - When you generate your key-pair with a password nsign encrypts the private k
 A - You should quickly generate a new key-pair and send the new public key to the people who used your old public key and tell them to only trust your new key.
 
 ## Getting started
-1. Download the latest realse from [here](https://github.com/tarithj/nsign/releases/latest)
+1. Download the latest release from [here](https://github.com/tarithj/nsign/releases/latest)
 2. Start nsign
 3. Select generateKey
 4. Follow the instructions
