@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript Style Guide](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)   
 A super fast user-friendly file signing and verification software
+![nsign](https://user-images.githubusercontent.com/29999281/95057528-f28c8300-0713-11eb-8505-84ddad700d3f.png)
 
 ## What is nsign
 Nsign is a file signing and verification software.
@@ -33,3 +34,5 @@ A - When you generate your key-pair with a password nsign encrypts the private k
 **Q - What happens if Someone stole my private key**   
 A - You should quickly generate a new key-pair and send the new public key to the people who used your old public key and tell them to only trust your new key.
 
+## Getting started
+1. Download 
