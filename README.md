@@ -35,4 +35,21 @@ A - When you generate your key-pair with a password nsign encrypts the private k
 A - You should quickly generate a new key-pair and send the new public key to the people who used your old public key and tell them to only trust your new key.
 
 ## Getting started
-1. Download 
+1. Download the latest realse from [here](https://github.com/tarithj/nsign/releases/latest)
+2. Start nsign
+3. Select generateKey
+4. Follow the instructions
+
+### Signing
+1. Start nsign
+2. Select sign
+3. Enter the password that was asked when you first generated the keys
+4. Enter the location of the private key (example: ./privateKey_256.nSignE)
+5. Enter the location of the file you want to sign (example: ./test.pdf)
+
+### Verifying
+1. Start nsign
+2. Select verify
+3. Enter the location of the public key (example: ./publicKey_256.nSign)
+4. Enter the location of the file you want to verify (NOTE: The .nSignSig file must be in the same location as the file. Example: ./test.pdf)
+
