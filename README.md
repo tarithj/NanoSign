@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript Style Guide](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)   
 A super fast user-friendly file signing and verification software   
-![nsign](https://commons.wikimedia.org/wiki/File:Screenshot_of_nSign_v1.1.0.png)
+![nsign](https://upload.wikimedia.org/wikipedia/commons/5/54/Screenshot_of_nSign_v1.1.0.png)
 
 ## What is nsign
 Nsign is a file signing and verification software.
