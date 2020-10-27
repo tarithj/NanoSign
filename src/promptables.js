@@ -91,7 +91,7 @@ async function inputParameters(command) {
         type: 'text',
         name: 'fileLocation',
         message: 'Type the location of the file you want to verify ' +
-         '(NOTE: the .nSingSig file must have the same name as the file)',
+         '(NOTE: the .nSignSig file must have the same name as the file)',
       },
     ];
     const response = await prompts(verifyQuestions);
