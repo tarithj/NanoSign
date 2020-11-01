@@ -7,7 +7,7 @@
 A super fast user-friendly file signing and verification software   
 ![nsign](https://upload.wikimedia.org/wikipedia/commons/5/54/Screenshot_of_nSign_v1.1.0.png)
 
-## What is nsign
+## What is Nsign(NanoSign)
 Nsign is a file signing and verification software.
 
 ### Why?
