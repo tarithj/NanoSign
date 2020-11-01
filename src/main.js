@@ -3,7 +3,7 @@ const fs = require('fs');
 const {generateKeys, decryptKey} = require('./generateKey');
 const {createSignature} = require('./createSignature');
 const {verifySignature} = require('./verifySignature');
-const {close} = require('./close');
+const {close, wait} = require('./close');
 const {selectACommand, inputParameters} = require('./promptables');
 require('./splash');
 
@@ -124,6 +124,7 @@ function verifyFile(fileLocation, publicKeyLocation) {
                 console.log(`${fileLocation} is not signed by `+
                 `${publicKeyData.name}`);
               }
+              wait();
             }
           });
         }
@@ -131,6 +132,7 @@ function verifyFile(fileLocation, publicKeyLocation) {
     }
   });
 }
+
 
 /**
  *
@@ -156,6 +158,7 @@ function signFile(fileLocation, privateKeyLocation, privateKeyPassword) {
               close(error);
             } else {
               console.log('Successfully created .nSignSig');
+              wait();
             }
           });
         }
@@ -221,6 +224,7 @@ function saveKeys(location, password, name) {
            `privateKey_${random}.nSignE`);
         }
       });
+  wait();
 }
 
 /**

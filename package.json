@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/main.js",
-    "build": "pkg . -t node12.18.1-win,node12.18.1-linux,node12.18.1-mac"
+    "build": "pkg . -t node12.18.1-win,node12.18.1-linux,node12.18.1-mac",
+    "buildWin": "pkg . -t node12.18.1-win"
+
   },
   "keywords": ["signing", "cryptography", "file", "security", "verification"],
   "author": "Tarith Jayasooriya",

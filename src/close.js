@@ -1,4 +1,5 @@
 const code200 = 200;
+const prompt = require('prompts');
 
 /**
  * Exits the process with an error
@@ -6,8 +7,21 @@ const code200 = 200;
  */
 function close(error) {
   console.error(error);
-  process.exit(code200);
+  wait(code200)
 }
+
+function wait(code = 0) {
+  (async ()=>{
+    await prompt({
+      type: 'text',
+      name: 'text',
+      message: 'Type anything to exit',
+    });
+    process.exit(0);
+  })();
+}
+
 module.exports = {
   close,
+  wait,
 };
